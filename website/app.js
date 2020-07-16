@@ -7,7 +7,7 @@ let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // Function event listener 
 generate.addEventListener('click', function () {   
-    const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+    const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
     const apiKey = '&APPID=128f6ed503894b48a2084f80c9e5dc79&units=imperial';
     const newZip = document.getElementById('zip').value;
     const content = document.getElementById('feelings').value;
