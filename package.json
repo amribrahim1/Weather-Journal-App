@@ -8,7 +8,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "@babel/preset-env"
+    presets: ['@babel/preset-env']
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
