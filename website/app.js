@@ -26,14 +26,17 @@ const getWeather = async (baseUrl,newZip,apiKey) => {
     const res = await fetch(baseUrl+newZip+apiKey);    
     try {
         const data = await res.json(); 
-        console.log(data);  
-        return data;
-    } catch (error) {
+        console.log(data);
         if (data.message){
             alert(data.message);
+            return false
+        }  
+        return data;
+    } catch (error) {
             console.log("error",error);
-        }
+            return false;
     }
+    
 }
 // Function to POST data
 const postData = async (url = '', data = {}) => {
