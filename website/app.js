@@ -25,7 +25,7 @@ generate.addEventListener('click', function () {
 
 // Function to GET data from API
 const getWeather = async (Zip) => {    
-    const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
     const apiKey = '128f6ed503894b48a2084f80c9e5dc79&units=imperial';
     const res = await fetch(apiUrl+Zip+'&APPID='+ apiKey);    
     const data = await res.json();   
