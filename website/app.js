@@ -7,16 +7,13 @@ let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // Function event listener 
 generate.addEventListener('click', function () {   
-    const Zip = document.getElementById('zip').value;
+    const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+    const apiKey = '&APPID=128f6ed503894b48a2084f80c9e5dc79&units=imperial';
+    const newZip = document.getElementById('zip').value;
     const content = document.getElementById('feelings').value;
-    if (Zip== "") {alert('Enter your Zip code');return false}
-    getWeather(Zip)
+    if (newZip== "") {alert('Enter your Zip code');return false}
+    getWeather(baseUrl,newZip,apiKey)
     .then(function (data) {
-        console.log(data);
-        if (data.message){
-            alert(data.message);
-            return false;
-        }
         postData('/add', { date: newDate, temp: data.main.temp, content })
     }).then(function (newData) {
         updateUI()
@@ -24,15 +21,21 @@ generate.addEventListener('click', function () {
 })
 
 // Function to GET data from API
-const getWeather = async (Zip) => {    
-    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-    const apiKey = '128f6ed503894b48a2084f80c9e5dc79&units=imperial';
-    const res = await fetch(apiUrl+Zip+'&APPID='+ apiKey);    
-    const data = await res.json();   
-    return data;
+const getWeather = async (baseUrl,newZip,apiKey) => {    
+   
+    const res = await fetch(baseUrl+newZip+apiKey);    
+    try {
+        const data = await res.json(); 
+        console.log(data);  
+        return data;
+    } catch (error) {
+        if (data.message){
+            alert(data.message);
+            console.log("error",error);
+        }
+    }
 }
-
-/* Function to POST data */
+// Function to POST data
 const postData = async (url = '', data = {}) => {
     console.log(data);
     const response = await fetch(url, {
@@ -43,7 +46,6 @@ const postData = async (url = '', data = {}) => {
         },
         body: JSON.stringify(data),
     });
-
     try {
         const newData = await response.json();
         return newData;
@@ -52,7 +54,7 @@ const postData = async (url = '', data = {}) => {
         console.log("Error in PostData", error);
     }
 }
-
+// Function to update UI
 const updateUI = async () => {
     const request = await fetch('/all');
     try {
