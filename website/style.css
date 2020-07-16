@@ -6,7 +6,7 @@ html, body{
 }
 
 #app{
-    height:120vh;
+    height:100%;
     background: #f23557;
     color: #f0d43a;
     justify-content: center;
@@ -39,7 +39,7 @@ html, body{
 }
 
 .headline {
-
+    font-size: xx-large;
 }
 .title{
 
@@ -107,3 +107,7 @@ button:focus {
     font-family: 'Oswald', sans-serif;
 
 } 
+
+P {
+    padding: 0px 50px;
+}
