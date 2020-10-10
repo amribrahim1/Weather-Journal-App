@@ -8,5 +8,8 @@ User enters his city ZIP code and his feeling then it shows the city's weather a
 
 It uses Node js server and API to provide with Weather.
 
+Project (Demo) link:
+https://weather-journal-apps.herokuapp.com/
+
 My course certificate:
 https://confirm.udacity.com/LDLRKFGA
