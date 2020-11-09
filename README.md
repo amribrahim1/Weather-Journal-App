@@ -1,4 +1,4 @@
-# Weather Journal App Project (Udacity learning projects) Project 2
+# Weather Journal App Project (Udacity learning projects)
 
 Overview
 
