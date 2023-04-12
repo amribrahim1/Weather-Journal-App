@@ -11,7 +11,7 @@ It uses [Node js](http://nodejs.org/) server and [openweathermap.org](https://ww
 This projec is the third project of ([Udacity NANODEGREE PROGRAM Front End Web Developer](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011)) course.
 
 Project (demo) link:
-https://weather-journal-apps.herokuapp.com/
+https://weather-journal-apps.onrender.com
 
 My course certificate:
 https://confirm.udacity.com/LDLRKFGA
